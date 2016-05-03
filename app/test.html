@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-custom1">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand link-custom1" href="">Project: Bace</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <select class="form-control no-outline" title="Server" ng-model="RiotVM.server">
+                        <option value="euw" selected>EUW</option>
+                        <option value="eune">EUNE</option>
+                        <option value="na">NA</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control no-outline" placeholder="Search" ng-model="RiotVM.summoner">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn no-outline btn-custom1" ng-click="send(RiotVM.server, RiotVM.summoner)">Search</button>
+                    </span>
+                </div>
+            </form>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<section class="container">
+    <div ng-if="info">
+        <!--<pre>{{info | json}}</pre>-->
+
+        <img ng-src="{{iconLink(info.profileIconId)}}" alt="icon" class="img-thumbnail">
+        <h1>Name: <small>{{info.name}}</small></h1>
+        <h2>Id: <small>{{info.id}}</small></h2>
+        <h2>Level: <small>{{info.summonerLevel}}</small></h2>
+        <h2>Last modified: <small>{{info.revisionDate | date}}</small></h2>
+    </div>
+</section>
