@@ -230,7 +230,6 @@ div.spinner i:nth-child(8) {
 
 .navbar-custom1 {
     border-radius: 0;
-    border-bottom-width: 3px;
 }
 
 .input-transparent {
@@ -265,6 +264,18 @@ div.spinner i:nth-child(8) {
     border-top: none;
 }
 
+.btn-fix-border:focus {
+    border-color: #006e52 !important;
+}
+
+.focus-border {
+    border-left: 5px solid white !important;
+}
+
+.focus-border:focus {
+    border-left: 5px solid #f39c12 !important;
+}
+
 .nav-tabs-custom1 {
     border-bottom: none;
 }
@@ -287,4 +298,12 @@ div.spinner i:nth-child(8) {
     background: #bf3e11 !important;
     color: ghostwhite;
     border-color: #bf3e11 !important;
+}
+
+.height-300 {
+    height: 300px;
+}
+
+.height-290 {
+    height: 290px;
 }

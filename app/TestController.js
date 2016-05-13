@@ -1,7 +1,7 @@
 angular.module('app')
     .controller('TestController', function($scope, $timeout, RiotService) {
 
-        var servers = ['EUW', 'EUNE', 'NA'];
+        $scope.servers = ['EUW', 'EUNE', 'NA'];
 
         $scope.loading = false;
         $scope.error = undefined;
@@ -20,7 +20,7 @@ angular.module('app')
         };
 
         $scope.getInfo = function(server, summoner) {
-            if (servers.indexOf(server) < 0 || !this.RiotVM.summoner) return;
+            if ($scope.servers.indexOf(server) < 0 || !this.RiotVM.summoner) return;
 
             $scope.loading = true;
             delete $scope.summoner;
@@ -45,7 +45,7 @@ angular.module('app')
         };
 
         $scope.getRunes = function(server, id) {
-            if (servers.indexOf(server) < 0 || !this.summoner.id) return;
+            if ($scope.servers.indexOf(server) < 0 || !this.summoner.id) return;
 
 
             RiotService.getRunes(encodeURIComponent(server), encodeURIComponent(id))

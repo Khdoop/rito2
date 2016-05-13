@@ -9,6 +9,9 @@ angular.module('app')
             },
             getRunes: function(server, id) {
                 return $http.get('https://' + server + '.api.pvp.net/api/lol/' + server + '/v1.4/summoner/' + id + '/runes' + key);
+            },
+            getItems: function() {
+                return $http.get('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item' + key);
             }
         }
     });

@@ -10,9 +10,11 @@
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
         <script src="node_modules/angular/angular.min.js"></script>
+        <script src="node_modules/angular-route/angular-route.min.js"></script>
         <script src="app/app.js"></script>
         <script src="app/RiotService.js"></script>
         <script src="app/TestController.js"></script>
+        <script src="app/items/ItemsController.js"></script>
 
         <script src=""></script>
     </head>
@@ -29,37 +31,31 @@
                     <a class="navbar-brand" href="">Project: Bace</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/items">Items</a></li>
+                    </ul>
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control no-outline" placeholder="Summoner.." ng-model="RiotVM.summoner">
+                            <input type="text" class="form-control no-outline no-radius focus-border" placeholder="Summoner.." ng-model="RiotVM.summoner">
                         </div>
-                        <div class="form-group">
-                            <button id="btnServer" type="button" class="btn btn-warning dropdown-toggle no-outline width-70" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span ng-bind="RiotVM.server + ' '"> </span><span class="caret"></span></button>
+                        <div class="dropdown form-group">
+                            <button id="btnServer" type="button" class="btn btn-warning dropdown-toggle no-outline width-70 no-radius" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span ng-bind="RiotVM.server + ' '"></span>
+                                <span class="caret"></span>
+                            </button>
                             <ul class="dropdown-menu">
                                 <li ng-repeat="server in servers" ng-click="changeServer(server)"><a href="">{{server | uppercase}}</a></li>
                             </ul>
                         </div>
                         <div class="form-group">
-                            <button id="btnSearch" type="submit" class="btn no-outline btn-success" ng-click="getInfo(RiotVM.server, RiotVM.summoner)">Search</button>
-
+                            <button id="btnSearch" type="submit" class="btn no-outline btn-success no-radius btn-fix-border" ng-click="getInfo(RiotVM.server, RiotVM.summoner)">Search</button>
                         </div>
                     </form>
 
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-        <section class="container margin-top-20">
-            <!--<div ng-if="loading" class="sk-cube-grid">
-                <div class="sk-cube sk-cube1"></div>
-                <div class="sk-cube sk-cube2"></div>
-                <div class="sk-cube sk-cube3"></div>
-                <div class="sk-cube sk-cube4"></div>
-                <div class="sk-cube sk-cube5"></div>
-                <div class="sk-cube sk-cube6"></div>
-                <div class="sk-cube sk-cube7"></div>
-                <div class="sk-cube sk-cube8"></div>
-                <div class="sk-cube sk-cube9"></div>
-            </div>-->
+        <section class="container margin-top-20" ng-view>
             <section ng-if="loading" class="wrapper">
                 <div class="spinner">
                     <i></i>

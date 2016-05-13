@@ -1,0 +1,11 @@
+<div class="col-md-6 height-300" ng-repeat="item in items">
+    <div class="panel panel-success height-290">
+        <div class="panel-heading">{{item.name}}</div>
+        <div class="panel-body">
+            <img ng-src="{{'http://ddragon.leagueoflegends.com/cdn/6.9.1/img/item/' + item.id + '.png'}}" alt="" class="img-thumbnail img-responsive">
+            <span class="text-center">
+                {{item.description}}
+            </span>
+        </div>
+    </div>
+</div>
