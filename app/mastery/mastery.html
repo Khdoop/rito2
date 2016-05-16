@@ -1,0 +1,10 @@
+<div>
+    <form action="">
+        <select name="" id="" title="server" ng-model="ser">
+            <option value="{{server.fake}}" ng-repeat="server in servers">{{server.real}}</option>
+        </select>
+        <input type="text" title="summoner">
+        <button ng-click="checkMastery('euw', 'euw1', 'khdoop')">search</button>
+    </form>
+    <pre>{{mastery | json}}</pre>
+</div>

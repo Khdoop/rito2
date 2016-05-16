@@ -1,7 +1,52 @@
 angular.module('app')
-    .controller('TestController', function($scope, $timeout, RiotService) {
+    .controller('MainController', function($scope, $timeout, RiotService) {
 
-        $scope.servers = ['EUW', 'EUNE', 'NA'];
+        $scope.servers = [
+            {
+                'real': 'EUW',
+                'fake': 'EUW1'
+            },
+            {
+                'real': 'EUNE',
+                'fake': 'EUN1'
+            },
+            {
+                'real': 'NA',
+                'fake': 'NA1'
+            },
+            {
+                'real': 'BR',
+                'fake': 'BR1'
+            },
+            {
+                'real': 'JP',
+                'fake': 'JP1'
+            },
+            {
+                'real': 'KR',
+                'fake': 'KR'
+            },
+            {
+                'real': 'LAN',
+                'fake': 'LA1'
+            },
+            {
+                'real': 'LAS',
+                'fake': 'LA2'
+            },
+            {
+                'real': 'OCE',
+                'fake': 'OC1'
+            },
+            {
+                'real': 'RU',
+                'fake': 'RU'
+            },
+            {
+                'real': 'TR',
+                'fake': 'TR1'
+            }
+        ];
 
         $scope.loading = false;
         $scope.error = undefined;
@@ -52,5 +97,15 @@ angular.module('app')
                 .then(function(response) {
                     console.log(response);
                 })
+        };
+        
+        $scope.checkStatus = function (server) {
+            if ($scope.servers.indexOf(server) < 0) return;
+
+            $scope.server = server;
+            RiotService.checkStatus(server.toLowerCase()).then(function(response) {
+                console.log(response);
+                $scope.serverStatus = response.data;
+            })
         }
     });

@@ -12,6 +12,12 @@ angular.module('app')
             },
             getItems: function() {
                 return $http.get('https://global.api.pvp.net/api/lol/static-data/euw/v1.2/item' + key);
+            },
+            checkStatus: function (server) {
+                return $http.get('http://status.leagueoflegends.com/shards/' + server);
+            },
+            checkMastery: function (real, fake, id) {
+                return $http.get('https://' + real + '.api.pvp.net/championmastery/location/' + fake + '/player/' + id + '/champions' + key);
             }
         }
     });
